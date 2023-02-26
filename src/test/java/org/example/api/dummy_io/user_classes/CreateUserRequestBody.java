@@ -4,7 +4,6 @@ import org.example.api.util.ReadProperties;
 
 public class CreateUserRequestBody {
 
-    private String title;
     private String firstName;
     private String lastName;
     private String email;

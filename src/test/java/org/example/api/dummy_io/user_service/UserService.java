@@ -1,6 +1,9 @@
 package org.example.api.dummy_io.user_service;
 
-import org.example.api.dummy_io.user_classes.*;
+import org.example.api.dummy_io.user_classes.CreateUserRequestBody;
+import org.example.api.dummy_io.user_classes.CreateUserResponseBody;
+import org.example.api.dummy_io.user_classes.RecentCreatedUserListResponseBody;
+import org.example.api.dummy_io.user_classes.User;
 
 import java.util.List;
 
