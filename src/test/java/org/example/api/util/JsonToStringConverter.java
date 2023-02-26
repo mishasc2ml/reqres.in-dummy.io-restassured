@@ -1,4 +1,4 @@
-package org.example.api.reqres.util;
+package org.example.api.util;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

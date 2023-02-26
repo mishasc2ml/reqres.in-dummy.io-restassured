@@ -1,4 +1,4 @@
-package org.example.tests.reqres;
+package org.example.api.setup;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -14,9 +14,9 @@ public class Specifications {
 
     private static final long responseTime = 5000;
 
-    public static RequestSpecification requestSpecification() {
+    public static RequestSpecification requestSpecification(String baseURL) {
         return new RequestSpecBuilder()
-                .setBaseUri("https://reqres.in/")
+                .setBaseUri(baseURL)
                 .setContentType(ContentType.JSON)
                 .build();
     }

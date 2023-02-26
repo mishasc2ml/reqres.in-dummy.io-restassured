@@ -1,7 +1,9 @@
-package org.example.tests.reqres;
+package org.example.api.reqres.tests;
 
 import org.example.api.reqres.pojo_request.user_request.CreateUserRequest;
 import org.example.api.reqres.pojo_response.user_response.CreatedUserResponse;
+import org.example.api.setup.Specifications;
+import org.example.api.setup.TestRetrySettings;
 import org.hamcrest.Matchers;
 import org.testng.Assert;
 import org.testng.ITestContext;
@@ -24,7 +26,7 @@ public class UserTests {
 
     @Test
     public void createdUserTests() {
-        Specifications.installSpecifications(Specifications.requestSpecification(), Specifications.responseSpecification(201));
+        Specifications.installSpecifications(Specifications.requestSpecification("https://reqres.in/"), Specifications.responseSpecification(201));
         CreateUserRequest user1 = new CreateUserRequest("morpheus", "leader");
         CreatedUserResponse createdUser = given()
                 .body(user1)
@@ -41,7 +43,7 @@ public class UserTests {
 
     @Test
     public void updatedUserTests() {
-        Specifications.installSpecifications(Specifications.requestSpecification(), Specifications.responseSpecification(200));
+        Specifications.installSpecifications(Specifications.requestSpecification("https://reqres.in/"), Specifications.responseSpecification(200));
         CreateUserRequest user1 = new CreateUserRequest("morpheus", "zion resident");
         given()
                 .body(user1)

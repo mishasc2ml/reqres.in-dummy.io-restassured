@@ -1,4 +1,4 @@
-package org.example.tests.reqres;
+package org.example.api.setup;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;

@@ -1,8 +1,9 @@
-package org.example.tests.reqres;
+package org.example.api.reqres.tests;
 
 import org.example.api.reqres.pojo_request.login_request.SuccessfulLoginRequest;
 import org.example.api.reqres.pojo_request.login_request.UnSuccessfulLoginRequest;
 import org.example.api.reqres.pojo_response.login_response.SuccessfulLoginResponse;
+import org.example.api.setup.Specifications;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,7 +14,7 @@ public class LoginTests {
 
     @Test
     public void successfulLogin() {
-        Specifications.installSpecifications(Specifications.requestSpecification(), Specifications.responseSpecification(200));
+        Specifications.installSpecifications(Specifications.requestSpecification("https://reqres.in/"), Specifications.responseSpecification(200));
         SuccessfulLoginRequest loginSuccessfulRequest = new SuccessfulLoginRequest("eve.holt@reqres.in", "cityslicka");
         String token = "QpwL5tke4Pnpja7X4";
         SuccessfulLoginResponse loginSuccessfulResponse = given()
@@ -29,7 +30,7 @@ public class LoginTests {
 
     @Test
     public void unSuccessfulLogin() {
-        Specifications.installSpecifications(Specifications.requestSpecification(), Specifications.responseSpecification(400));
+        Specifications.installSpecifications(Specifications.requestSpecification("https://reqres.in/"), Specifications.responseSpecification(400));
         UnSuccessfulLoginRequest unSuccessfulLoginRequest = new UnSuccessfulLoginRequest("peter@klaven");
         String errorText = "Missing password";
         given()

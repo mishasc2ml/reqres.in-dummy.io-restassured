@@ -1,8 +1,9 @@
-package org.example.tests.reqres;
+package org.example.api.reqres.tests;
 
 import org.example.api.reqres.pojo_request.register_request.SuccessfulRegisterRequest;
 import org.example.api.reqres.pojo_request.register_request.UnSuccessfulRegisterRequest;
 import org.example.api.reqres.pojo_response.register_response.SuccessfulRegisterResponse;
+import org.example.api.setup.Specifications;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,7 +14,7 @@ public class RegisterTests {
 
     @Test
     public void successfulRegister() {
-        Specifications.installSpecifications(Specifications.requestSpecification(), Specifications.responseSpecification(200));
+        Specifications.installSpecifications(Specifications.requestSpecification("https://reqres.in/"), Specifications.responseSpecification(200));
         SuccessfulRegisterRequest successfulRegisterRequest = new SuccessfulRegisterRequest("eve.holt@reqres.in", "pistol");
         Integer id = 4;
         String token = "QpwL5tke4Pnpja7X4";
@@ -31,7 +32,7 @@ public class RegisterTests {
 
     @Test
     public void unSuccessfulRegister() {
-        Specifications.installSpecifications(Specifications.requestSpecification(), Specifications.responseSpecification(400));
+        Specifications.installSpecifications(Specifications.requestSpecification("https://reqres.in/"), Specifications.responseSpecification(400));
         UnSuccessfulRegisterRequest unSuccessfulRegisterRequest = new UnSuccessfulRegisterRequest("sydney@fife");
         String errorText = "Missing password";
         given()
